@@ -1,32 +1,45 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
+body,
+html {
+	height: 100%;
+}
+
+h1,
+h3,
+button {
+	color: white;
+	font-family: 'Julius Sans One', sans-serif;
+	text-shadow: 2px 2px #464646;
+}
+
+.large-heading {
+	font-size: 60px;
+}
+
+.medium-heading {
+	font-size: 40px;
 }
 
 .bg {
-  /* The image used */
-  background-image: url('./img/book-landing.jpg');
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	/* The image used */
+	background-image: url('./img/book-landing.jpg');
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-h1 {
- color: white;
+.center {
+	border-radius: 1em;
+	padding: 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
 }
-
-h3 {
- color: white;
-}
-
-
