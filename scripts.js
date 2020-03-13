@@ -1,5 +1,7 @@
 const cards = document.querySelectorAll('.memory-card');
 
+cards.forEach((card) => card.addEventListener('click', flipCard));
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -25,11 +27,10 @@ function flipCard() {
 
 function checkForMatch() {
 	let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
-	isMatch ? disableCards() : unFlipCards();
+	isMatch ? matched() : notMatched();
 }
 
-function disableCards() {
+function matched() {
 	//match!
 	firstCard.removeEventListener('click', flipCard);
 	secondCard.removeEventListener('click', flipCard);
@@ -37,7 +38,7 @@ function disableCards() {
 	resetBoard();
 }
 
-function unFlipCards() {
+function notMatched() {
 	lockBoard = true;
 	//not a match!
 	setTimeout(() => {
@@ -45,7 +46,7 @@ function unFlipCards() {
 		secondCard.classList.remove('flip');
 
 		resetBoard();
-	}, 1500);
+	}, 1200);
 }
 
 function resetBoard() {
@@ -62,5 +63,3 @@ function resetBoard() {
 	//right after will execute the fucntion right after it is defined.
 	//So, the cards will load shuffled.
 })();
-
-cards.forEach((card) => card.addEventListener('click', flipCard));

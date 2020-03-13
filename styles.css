@@ -10,6 +10,20 @@ body {
 	background-image: url('./img/gameBoard.jpg');
 }
 
+h1 {
+	color: white;
+	font-family: 'Julius Sans One', sans-serif;
+	text-shadow: 2px 2px #464646;
+	font-size: 75px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .memory-game {
 	width: 640px;
 	height: 640px;
