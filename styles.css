@@ -1,68 +1,150 @@
+/* HTML Reset */
+
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	height: 100vh;
-	display: flex;
-	background-image: url('./img/gameBoard.jpg');
+  height: 100vh;
+  display: flex;
+  background-image: url("./img/gameBoard.jpg");
 }
 
 h1 {
-	color: white;
-	font-family: 'Julius Sans One', sans-serif;
-	text-shadow: 2px 2px #464646;
-	font-size: 75px;
+  color: white;
+  font-family: "Julius Sans One", sans-serif;
+  text-shadow: 2px 2px #464646;
+  font-size: 75px;
 }
 
+
+/* Main Card Game CSS */
+
 .container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .memory-game {
-	width: 640px;
-	height: 640px;
-	margin: auto;
-	display: flex;
-	flex-wrap: wrap;
-	perspective: 1000px;
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .memory-card {
-	width: calc(25% - 10px);
-	height: clac(33.333% - px);
-	margin: 5px;
-	position: relative;
-	transform: scale(1);
-	transform-style: preserve-3d;
-	transition: transform .5s;
+  width: calc(25% - 10px);
+  height: clac(33.333% - px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
 .memory-card:active {
-	transform: scale(.97);
-	transition: transform .2s;
+  transform: scale(0.97);
+  transition: transform 0.2s;
 }
 
 .memory-card.flip {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .front-face,
 .back-face {
-	width: 100%;
-	height: 100%;
-	padding: 20px;
-	position: absolute;
-	border-radius: 5px;
-	background-color: transparent;
-	backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: transparent;
+  backface-visibility: hidden;
 }
 
 .front-face {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+
+/* Time / Flips Tracker */
+
+.game-info-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-info {
+  color: white;
+  font-family: "Julius Sans One", sans-serif;
+  text-shadow: 2px 2px #464646;
+  font-size: 1em;
+}
+
+
+/* Game Over / Victory  */
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Julius Sans One", sans-serif;
+  text-shadow: 2px 2px #464646;
+  transition: background-color 500ms, font-size 100ms;
+}
+
+.overlay.visible {
+  display: flex;
+  animation: overlay-grow 400ms forwards;
+}
+
+.end-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Julius Sans One", sans-serif;
+  text-shadow: 2px 2px #464646;
+  transition: background-color 500ms, font-size 100ms;
+}
+
+.end-overlay.visible {
+  display: flex;
+  animation: overlay-grow 400ms forwards;
+}
+
+.restart-text {
+  font-size: .3em;
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 10em;
+  }
 }
